@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "236334040159",
+    "project_id": "covaryproject",
+    "storage_bucket": "covaryproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236334040159:android:02d6b6a591b2a84f4187ea",
+        "android_client_info": {
+          "package_name": "com.example.covary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyuDm8yubQJ_T53hCKMuCJZScqV0DTTf4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

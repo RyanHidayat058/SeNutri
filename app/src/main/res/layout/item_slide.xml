@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/sliderPenyakit"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:padding="16dp"
+    android:background="@drawable/slider_bg">
+
+    <ImageView
+        android:id="@+id/imageSlide"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/titleSlide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_large"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_semibold"
+        android:paddingTop="8dp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/descSlide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_medium"
+        android:textColor="@color/white"
+        android:fontFamily="@font/montserrat_regular"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:paddingTop="4dp" />
+</LinearLayout>

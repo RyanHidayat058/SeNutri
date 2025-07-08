@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".assessment.HasilAssessmentActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/topBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/top_background">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hasil Asesmen"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:textSize="@dimen/text_large"
+                    android:fontFamily="@font/montserrat_semibold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/svHasilAssessment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/topBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btnBerikutnya">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Terima kasih telah mengisi Asesmen diri!"
+                    android:textSize="@dimen/text_semilarge"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/black"
+                    android:layout_marginVertical="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Berdasarkan dari jawaban yang kamu berikan"
+                    android:textSize="@dimen/text_medium"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/button_selector"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvBeratBadan1HA"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Berat Badan"
+                                android:textSize="@dimen/text_small"
+                                android:textStyle="bold"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/tvBeratBadan2HA"/>
+
+                            <TextView
+                                android:id="@+id/tvBeratBadan2HA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="70 kg"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/tvBeratBadan1HA"/>
+
+                            <TextView
+                                android:id="@+id/tvTinggiBadan1HA"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="Tinggi Badan"
+                                android:textSize="@dimen/text_small"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvBeratBadan1HA"
+                                app:layout_constraintEnd_toStartOf="@+id/tvTinggiBadan2HA"/>
+
+                            <TextView
+                                android:id="@+id/tvTinggiBadan2HA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="170 cm"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/tvTinggiBadan1HA"/>
+
+                            <TextView
+                                android:id="@+id/tvIndeksMasaTubuh1HA"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="Indeks Masa Tubuh (IMT)"
+                                android:textSize="@dimen/text_small"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvTinggiBadan1HA"
+                                app:layout_constraintEnd_toStartOf="@+id/tvIndeksMasaTubuh2HA"/>
+
+                            <TextView
+                                android:id="@+id/tvIndeksMasaTubuh2HA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Normal"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/tvIndeksMasaTubuh1HA"/>
+
+                            <TextView
+                                android:id="@+id/tvKategoriPAL1HA"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Kategori PAL"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:textSize="@dimen/text_small"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvIndeksMasaTubuh1HA"
+                                app:layout_constraintEnd_toStartOf="@+id/tvKategoriPAL2HA"/>
+
+                            <TextView
+                                android:id="@+id/tvKategoriPAL2HA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sedang"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/tvKategoriPAL1HA"/>
+
+                            <TextView
+                                android:id="@+id/tvTujuan1HA"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Tujuan"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:textSize="@dimen/text_small"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvKategoriPAL1HA"
+                                app:layout_constraintEnd_toStartOf="@+id/tvTujuan2HA"/>
+
+                            <TextView
+                                android:id="@+id/tvTujuan2HA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Menurunkan Berat Badan"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/tvTujuan1HA"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Untuk mencapai tujuan kesehatan yang kamu ingin capai, kami merekomendasikan ini untuk kamu!"
+                    android:textSize="@dimen/text_medium"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/llAsupanKalori"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:background="@drawable/button_selector"
+                    android:layout_marginBottom="8dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:rowCount="2"
+                        android:columnCount="2"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvAsupanKaloriHarian1HA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Asupan Kalori Harian"
+                            android:gravity="left"
+                            android:textSize="@dimen/text_small"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/white"
+                            android:layout_margin="8dp" />
+
+                        <TextView
+                            android:id="@+id/tvAsupanKaloriHarian2HA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:gravity="right"
+                            android:text="2269 kal"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_small"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/white"
+                            android:layout_margin="8dp" />
+                    </GridLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnBerikutnya"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Pergi Ke Beranda"
+            android:textSize="@dimen/text_medium"
+            android:backgroundTint="@null"
+            android:background="@drawable/button_selector"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="63dp"
+            app:layout_constraintTop_toBottomOf="@id/svHasilAssessment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

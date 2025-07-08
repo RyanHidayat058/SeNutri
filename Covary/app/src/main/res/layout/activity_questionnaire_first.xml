@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".kuisioner.QuestionnaireFirstActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kuisioner Klasifikasi PAL"
+            android:textSize="@dimen/text_large"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@color/blue_primary"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@color/gray_primary"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@color/gray_primary"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@color/gray_primary"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@color/gray_primary"/>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pada aktivitas Sehari-hari seberapa sering Anda melakukan aktivitas fisik dalam sehari-hari (misalnya, berjalan kaki, naik tangga, pekerjaan rumah tangga)."
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_semilarge"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/button_selector"
+                        android:layout_marginBottom="10dp"
+                        android:padding="12dp"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Jarang Sekali"
+                                android:layout_marginRight="10dp"
+                                android:textSize="@dimen/text_medium"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hanya aktivitas dasar seperti duduk, bekerja di meja"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:button="@drawable/radio_button_selector"
+                            android:id="@+id/rbSatuSatu"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/button_selector"
+                        android:layout_marginBottom="10dp"
+                        android:padding="12dp"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Kadang-Kadang"
+                                android:layout_marginRight="10dp"
+                                android:textSize="@dimen/text_medium"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Berjalan kaki dalam jarak pendek, beberapa pekerjaan rumah tangga ringan"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:button="@drawable/radio_button_selector"
+                            android:id="@+id/rbSatuDua"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/button_selector"
+                        android:layout_marginBottom="10dp"
+                        android:padding="12dp"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sering"
+                                android:layout_marginRight="10dp"
+                                android:textSize="@dimen/text_medium"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Berjalan jauh, pekerjaan rumah tangga berat, naik turun tangga beberapa kali"
+                                android:textSize="@dimen/text_small"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/white"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:button="@drawable/radio_button_selector"
+                            android:id="@+id/rbSatuTiga"/>
+                    </LinearLayout>
+                </RadioGroup>
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnBerikutnya"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Berikutnya"
+            android:textSize="@dimen/text_medium"
+            android:background="@drawable/button_selector"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="50dp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

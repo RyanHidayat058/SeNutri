@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".myaplikasi.MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Covary"
+        tools:targetApi="31">
+        <activity
+            android:name=".kuisioner.YakinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kuisioner.PalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splashscreen.Splash"
+            android:exported="true"
+            android:theme="@style/Theme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".assessment.HasilAssessmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kuisioner.QuestionnaireFifthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kuisioner.QuestionnaireFourthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kuisioner.QuestionnaireThirdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kuisioner.QuestionnaireSecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".kuisioner.QuestionnaireFirstActivity"
+            android:exported="false" />
+        <activity
+            android:name=".assessment.AssessmentFifthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".assessment.AssessmentFourthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".assessment.AssessmentThirdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".assessment.AssessmentSecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".assessment.AssessmentFirstActivity"
+            android:exported="false" />
+        <activity
+            android:name=".forgotpassword.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".assessment.AssessmentFirstActivity">
+
+    <!-- Layout Utama dengan orientasi vertikal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Bagian Scrollable dengan layout_weight agar kontennya fleksibel -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:minHeight="48dp">
+
+                    <ImageButton
+                        android:id="@+id/btnBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_back"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Kembali"
+                        android:tint="@color/black"
+                        android:padding="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/textJudul"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kamu"
+                        android:textSize="@dimen/text_large"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/montserrat_semibold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:background="@color/blue_primary"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:background="@color/blue_primary"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:background="@color/gray_primary"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:background="@color/gray_primary"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:background="@color/gray_primary"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/gray_primary"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Beritahu kami sedikit tentang diri Anda."
+                    android:justificationMode="inter_word"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_semilarge"
+                    android:layout_marginBottom="53dp"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Berapa usiamu?"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_medium"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginBottom="5dp"/>
+
+                <EditText
+                    android:id="@+id/usiaKamu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Masukan usiamu"
+                    android:textSize="@dimen/text_medium"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:autofillHints="email"
+                    android:textColor="@color/black"
+                    android:drawablePadding="8dp"
+                    android:padding="10dp"
+                    android:background="@drawable/edit_text_background"
+                    android:layout_marginBottom="32dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Berapa tanggal lahirmu?"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_medium"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginBottom="5dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/datePickerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_google_style"
+                    android:padding="10dp"
+                    android:layout_marginBottom="32dp">
+
+                    <ImageView
+                        android:id="@+id/logoTanggalLahir"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_calendar"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="5dp"
+                        android:contentDescription="Google Logo" />
+
+                    <TextView
+                        android:id="@+id/tvTanggalLahir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Masukan tanggal lahir kamu"
+                        android:textSize="@dimen/text_medium"
+                        android:textColor="@color/gray_secondary"
+                        android:layout_marginLeft="16dp"
+                        android:layout_toEndOf="@+id/logoTanggalLahir"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/montserrat_regular"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Apa jenis kelaminmu?"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_medium"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginBottom="5dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/spinner_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/spinner_background"
+                        android:paddingEnd="40dp"/>
+
+                    <!-- Ikon dropdown hitam -->
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_drop_down"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="12dp"
+                        app:tint="@color/black" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Tombol Berikutnya (Tidak menempel di bawah layar) -->
+        <Button
+            android:id="@+id/btnBerikutnya"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Berikutnya"
+            android:textSize="@dimen/text_medium"
+            android:backgroundTint="@null"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/button_selector"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

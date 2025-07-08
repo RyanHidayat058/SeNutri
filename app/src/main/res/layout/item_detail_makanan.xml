@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="@drawable/card_white"
+    android:layout_marginTop="12dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:gravity="center_vertical"
+    android:clipToPadding="false"
+    android:elevation="2dp"
+    android:shape="rectangle"
+    android:radius="8dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvJenisDetailMakanan"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/montserrat_italic"
+            android:textSize="@dimen/text_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Roti" />
+
+        <TextView
+            android:id="@+id/tvNamaDM"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="@dimen/text_semilarge"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Roti" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/tvKaloriDM"
+                android:textColor="@android:color/black"
+                android:text="Kalori:250g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="@dimen/text_medium"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_gravity="fill_horizontal" />
+
+            <TextView
+                android:id="@+id/tvKarboDM"
+                android:textColor="@android:color/black"
+                android:text="Karbohidrat:35g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="@dimen/text_medium"
+                android:paddingLeft="10dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_gravity="fill_horizontal" />
+
+            <TextView
+                android:id="@+id/tvProteinDM"
+                android:textColor="@android:color/black"
+                android:text="Protein:5g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="@dimen/text_medium"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_gravity="fill_horizontal" />
+
+            <TextView
+                android:id="@+id/tvLemakDM"
+                android:textColor="@android:color/black"
+                android:text="Lemak:10g"
+                android:layout_width="wrap_content"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_medium"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_gravity="fill_horizontal" />
+        </GridLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/line_divider" />
+    </LinearLayout>
+</LinearLayout>

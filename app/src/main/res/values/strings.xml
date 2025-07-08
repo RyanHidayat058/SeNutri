@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Senutri</string>
+    <string name="select">Pilih jenis kelamin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="client_id">236334040159-lv7gscrclge8gtmjr3bmgoiln9ahqqab.apps.googleusercontent.com</string>
+</resources>

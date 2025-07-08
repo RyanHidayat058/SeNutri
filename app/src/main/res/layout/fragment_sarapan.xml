@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".fragments.MakanMalamFragment">
+
+    <!-- Include bagian atas seperti navbar -->
+    <include layout="@layout/layout_save_navbar" />
+
+    <!-- Kartu Asupan Harian -->
+    <LinearLayout
+        android:id="@+id/cardAsupan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_background"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:elevation="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_height="wrap_content"
+            android:text="Asupan Harian"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_semilarge"
+            android:textStyle="bold" />
+
+        <!-- Kalori -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kalori"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:id="@+id/tvKaloriSarapan"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_medium" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressKaloriSarapan"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:progress="0"
+            android:max="100"
+            android:progressTint="#FF6E40"
+            android:backgroundTint="#80FFFFFF"
+            android:layout_marginTop="4dp"
+            android:indeterminate="false" />
+
+        <!-- Karbo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Karbohidrat"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:id="@+id/tvKarboSarapan"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_medium" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressKarboSarapan"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:progress="0"
+            android:max="100"
+            android:progressTint="#FF6E40"
+            android:backgroundTint="#80FFFFFF"
+            android:layout_marginTop="4dp"
+            android:indeterminate="false" />
+
+        <!-- Protein -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Protein"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:id="@+id/tvProteinSarapan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_medium" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressProteinSarapan"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:progress="0"
+            android:max="100"
+            android:progressTint="#FF6E40"
+            android:backgroundTint="#80FFFFFF"
+            android:layout_marginTop="4dp"
+            android:indeterminate="false" />
+
+        <!-- Lemak -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:layout_weight="1"
+                android:text="Lemak"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:id="@+id/tvLemakSarapan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_medium" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressLemakSarapan"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:progress="0"
+            android:max="100"
+            android:progressTint="#FF6E40"
+            android:backgroundTint="#80FFFFFF"
+            android:layout_marginTop="4dp"
+            android:indeterminate="false" />
+    </LinearLayout>
+
+    <!-- RecyclerView diletakkan setelah card asupan -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSarapan"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="16dp"
+        android:layout_marginBottom="85dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        tools:listitem="@layout/item_makanan"/>
+</LinearLayout>

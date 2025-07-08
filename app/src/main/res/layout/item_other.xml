@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvRekomendasiMinum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/black"
+        android:text="Rekomendasi Minum"
+        android:textSize="@dimen/text_medium"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_background"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvAsupanCairan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Asupan Cairan"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/imgAir"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_water" />
+
+            <TextView
+                android:id="@+id/tvLiter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="1 Liter / 3 Liter"
+                android:textColor="@android:color/white"
+                android:layout_marginStart="8dp"
+                android:textSize="@dimen/text_small" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:max="3000"
+            android:progress="0"
+            android:progressTint="@color/progress_coklat"
+            android:progressBackgroundTint="@color/progress_bg_black" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvVolume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="0,25L"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/btnMinus"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/circle_blue"
+            android:src="@drawable/ic_min"
+            android:contentDescription="Kurangi" />
+
+        <ImageView
+            android:id="@+id/imgGelas"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_cup_water" />
+
+        <ImageButton
+            android:id="@+id/btnPlus"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/circle_blue"
+            android:src="@drawable/ic_add"
+            android:contentDescription="Tambah" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvRekomendasiAktivitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/black"
+        android:text="Rekomendasi Aktivitas"
+        android:textSize="@dimen/text_medium"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp" />
+
+    <LinearLayout
+        android:id="@+id/llRekomendasiAktivitas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_background"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/imgOlahraga"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_olahraga" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="top"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvsaranAktivitas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Berdasarkan hasil pemeriksaan, Anda masuk dalam kategori obesitas. Berikut kami berikan beberapa pilihan olahraga yang cocok untuk membantu Anda."
+                    android:textColor="@android:color/white"
+                    android:maxLines="6"
+                    android:layout_marginStart="8dp"
+                    android:textSize="@dimen/text_small" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvIMT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/black"
+        android:text="Informasi Indeks Massa Tubuh (IMT)"
+        android:textSize="@dimen/text_medium"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_imt"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTinggiBadan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Tinggi Badan: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                android:textSize="@dimen/text_small" />
+
+            <TextView
+                android:id="@+id/tvTinggiBadanUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="-"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_small" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvBeratBadan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Berat Badan: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                android:textSize="@dimen/text_small" />
+
+            <TextView
+                android:id="@+id/tvBeratBadanUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="-"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_small" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Status: "
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                android:textSize="@dimen/text_small" />
+
+            <TextView
+                android:id="@+id/tvStatusUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="-"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_small" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
