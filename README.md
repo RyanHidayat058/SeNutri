@@ -1,6 +1,6 @@
 # SeNutri ✨
 
-![Splash Screen](https://github.com/user-attachments/assets/8e87cb82-2741-41bc-b00c-11ee84572651)
+![Group 102](https://github.com/user-attachments/assets/2a7491b9-a969-48e8-bf75-58487a135a3f)
 
 ## SeNutri: Smart eating Smart Tracking
 Pengembangan Aplikasi Mobile Gizi untuk Pemantauan dan Perencanaan Pola Makan Sehat Berbasis Android
