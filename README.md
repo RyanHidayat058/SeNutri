@@ -1,3 +1,3 @@
-# SeNutri
+# SeNutri ✨
 
-Pengembangan Aplikasi Mobile Gizi untuk Pemantauan dan Perencanaan Pola Makan Sehat Berbasis Android
+![Splash Screen](https://github.com/user-attachments/assets/8e87cb82-2741-41bc-b00c-11ee84572651)
