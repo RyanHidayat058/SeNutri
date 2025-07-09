@@ -70,6 +70,10 @@ class RegisterActivity : AppCompatActivity() {
                     binding.password.error = "Kata sandi tidak boleh kosong"
                     binding.password.requestFocus()
                 }
+                pass.length < 8 -> {
+                    binding.password.error = "Gunakan kata sandi dengan paling sedikit delapan karakter."
+                    binding.password.requestFocus()
+                }
                 confirmPass.isEmpty() -> {
                     binding.cPassword.error = "Konfirmasi kata sandi tidak boleh kosong"
                     binding.cPassword.requestFocus()
