@@ -29,7 +29,7 @@ class DetailMakananAdapter(private val makananList: List<MakananDetail>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = makananList[position]
-        holder.tvNama.text = "${item.nama} (${item.gram} g)"
+        holder.tvNama.text = "${item.nama} (${item.gram}g) • ${item.jam}"
         holder.tvjenisMakanan.text = "${item.jenisMakanan}"
         holder.tvKalori.text = "Kalori: ${item.kalori}g"
         holder.tvKarbo.text = "Karbohidrat: ${item.karbohidrat}g"

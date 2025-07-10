@@ -17,6 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.example.covary.login.utils.SessionManager
 
 class ProfileFragment : Fragment() {
 
@@ -74,6 +75,10 @@ class ProfileFragment : Fragment() {
         binding.btnKeluarAkun.setOnClickListener {
             auth.signOut()
             googleSignInClient.signOut()
+
+            val sessionManager = com.example.covary.login.utils.SessionManager(requireContext())
+            sessionManager.setHasLoggedIn(false)
+
             val intent = Intent(requireContext(), LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

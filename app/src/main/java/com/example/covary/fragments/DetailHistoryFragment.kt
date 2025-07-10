@@ -87,7 +87,8 @@ class DetailHistoryFragment : Fragment() {
                         karbohidrat = data["karbohidrat"].toString().toDoubleOrNull() ?: 0.0,
                         protein = data["protein"].toString().toDoubleOrNull() ?: 0.0,
                         lemak = data["lemak"].toString().toDoubleOrNull() ?: 0.0,
-                        gram = (data["gram"] as? Number)?.toInt() ?: 0
+                        gram = (data["gram"] as? Number)?.toInt() ?: 0,
+                        jam = data["jam"]?.toString() ?: ""
                     )
                     listDetail.add(item)
                 }

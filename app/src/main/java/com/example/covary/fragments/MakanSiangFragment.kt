@@ -81,9 +81,10 @@ class MakanSiangFragment : Fragment() {
 
                     val namaMakanan = doc.getString("nama") ?: ""
                     val gram = doc.getDouble("gram")?.toInt() ?: 0
+                    val jam = doc.getString("jam") ?: ""
 
                     val makanan = Makanan(
-                        nama = "$namaMakanan ($gram g)",
+                        nama = "$namaMakanan ($gram g) • $jam",
                         kalori = kalori,
                         karbohidrat = karbo,
                         lemak = lemak,

@@ -57,8 +57,9 @@ class DetailDaftarMakananFragment : Fragment() {
             val totalKarbo = baseKarbo * porsi
             val totalProtein = baseProtein * porsi
             val totalLemak = baseLemak * porsi
+            val jamSekarang = SimpleDateFormat("HH:mm", Locale("id", "ID")).format(Calendar.getInstance().time)
 
-            tvNama.text = "${menuItem?.nama} (${totalGram}g)"
+            tvNama.text = "${menuItem?.nama} (${totalGram}g) • $jamSekarang"
             tvKalori.text = "Kalori: ${"%.1f".format(totalKalori)}g"
             tvKarbohidrat.text = "Karbohidrat: ${"%.1f".format(totalKarbo)}g"
             tvProtein.text = "Protein: ${"%.1f".format(totalProtein)}g"
@@ -98,6 +99,7 @@ class DetailDaftarMakananFragment : Fragment() {
             val data = hashMapOf(
                 "jenisMakanan" to jenisMakanan,
                 "tanggal" to formattedDate,
+                "jam" to SimpleDateFormat("HH:mm", Locale("id", "ID")).format(currentDate),
                 "nama" to menuItem?.nama,
                 "gram" to (baseGram * porsi),
                 "kalori" to "%.1f".format(Locale.ENGLISH, baseKalori * porsi).toDouble(),

@@ -26,6 +26,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import android.os.Handler
 import android.os.Looper
+import com.example.covary.login.utils.SessionManager
 
 
 class LoginActivity : AppCompatActivity() {
@@ -40,13 +41,34 @@ class LoginActivity : AppCompatActivity() {
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+
+        val sessionManager = SessionManager(this)
+        val currentUser = firebaseAuth.currentUser
+
+        if (currentUser != null && currentUser.isEmailVerified && sessionManager.hasLoggedIn()) {
+            val userDocRef = firestore.collection("users").document(currentUser.uid)
+            userDocRef.get().addOnSuccessListener { document ->
+                if (document.exists()) {
+                    val nama = document.getString("nama")
+                    if (nama.isNullOrEmpty()) {
+                        startActivity(Intent(this, AssessmentFirstActivity::class.java))
+                    } else {
+                        startActivity(Intent(this, MainActivity::class.java))
+                    }
+                    finish()
+                }
+            }.addOnFailureListener {
+                // Gagal baca Firestore
+            }
+        }
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
         binding.root.setOnApplyWindowInsetsListener { v, insets -> insets }
-
-        firebaseAuth = FirebaseAuth.getInstance()
-        firestore = FirebaseFirestore.getInstance()
 
         // Setup Google Sign-In options
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -99,6 +121,7 @@ class LoginActivity : AppCompatActivity() {
                     if (it.isSuccessful) {
                         val user = firebaseAuth.currentUser
                         if (user != null && user.isEmailVerified) {
+                            sessionManager.setHasLoggedIn(true)
                             val userDocRef = firestore.collection("users").document(user.uid)
                             userDocRef.get().addOnSuccessListener { document ->
                                 val nama = document.getString("nama")
@@ -210,6 +233,8 @@ class LoginActivity : AppCompatActivity() {
                                     )
                                     userDocRef.set(userData)
                                         .addOnSuccessListener {
+                                            SessionManager(this).setHasLoggedIn(true)
+
                                             continueAfterLogin(userDocRef)
                                         }
                                         .addOnFailureListener {
@@ -219,6 +244,8 @@ class LoginActivity : AppCompatActivity() {
                                             Toast.makeText(this, "Gagal menyimpan data", Toast.LENGTH_SHORT).show()
                                         }
                                 } else {
+                                    SessionManager(this).setHasLoggedIn(true)
+
                                     continueAfterLogin(userDocRef)
                                 }
                             }.addOnFailureListener {

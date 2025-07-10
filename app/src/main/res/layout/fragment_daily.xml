@@ -199,11 +199,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginLeft="16dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/cardNutrisi"
         app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center_vertical">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:src="@drawable/ic_calendar"
