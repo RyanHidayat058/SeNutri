@@ -31,6 +31,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 import de.hdodenhof.circleimageview.CircleImageView
 import java.io.ByteArrayOutputStream
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import android.os.Build
 
 class UbahProfileFragment : Fragment() {
     private val PICK_IMAGE_REQUEST = 1
@@ -43,6 +47,26 @@ class UbahProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.READ_MEDIA_IMAGES)
+                != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(android.Manifest.permission.READ_MEDIA_IMAGES),
+                    100
+                )
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                    101
+                )
+            }
+        }
 
         val auth = FirebaseAuth.getInstance()
         val firestore = FirebaseFirestore.getInstance()
@@ -171,7 +195,13 @@ class UbahProfileFragment : Fragment() {
 
         try {
             // Buka inputStream lalu ubah ke Bitmap
+            Log.d("IMGUR_UPLOAD", "Mencoba buka InputStream dari URI: $uri")
             val inputStream = requireContext().contentResolver.openInputStream(uri)
+            if (inputStream == null) {
+                Log.e("IMGUR_UPLOAD", "InputStream null. URI: $uri")
+                onError("Tidak bisa membaca gambar. Mungkin izin belum diberikan.")
+                return
+            }
             val bitmap = BitmapFactory.decodeStream(inputStream)
             inputStream?.close()
 
@@ -194,6 +224,7 @@ class UbahProfileFragment : Fragment() {
                 override fun onResponse(call: Call<ImgurResponse>, response: Response<ImgurResponse>) {
                     if (response.isSuccessful) {
                         val imageUrl = response.body()?.data?.link
+                        Log.d("IMGUR_UPLOAD", "Upload berhasil: $imageUrl")
                         if (!imageUrl.isNullOrEmpty()) {
                             onSuccess(imageUrl)
                         } else {
@@ -252,6 +283,21 @@ class UbahProfileFragment : Fragment() {
             }
 
             imgProfile.setImageURI(imageUri)
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if ((requestCode == 100 || requestCode == 101) &&
+            grantResults.isNotEmpty() &&
+            grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(requireContext(), "Izin diberikan", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), "Izin ditolak. Tidak bisa mengakses gambar.", Toast.LENGTH_SHORT).show()
         }
     }
 }
