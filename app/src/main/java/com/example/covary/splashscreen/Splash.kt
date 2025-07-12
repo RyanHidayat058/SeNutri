@@ -17,10 +17,9 @@ class Splash : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        // Delay splash screen selama 2 detik, lalu pindah ke MainActivity
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
-        }, 2000) // 2000 ms = 2 detik
+        }, 2000)
     }
 }

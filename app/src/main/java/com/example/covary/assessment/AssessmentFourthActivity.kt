@@ -17,20 +17,16 @@ class AssessmentFourthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityAssessmentFourthBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
-
         binding.root.setOnApplyWindowInsetsListener { _, insets -> insets }
 
-        // Toggle kolom 'Lainnya' berdasarkan checkbox
         binding.cbLainnya.setOnCheckedChangeListener { _, isChecked ->
             binding.etLainnya.visibility = if (isChecked) android.view.View.VISIBLE else android.view.View.GONE
             if (!isChecked) binding.etLainnya.text.clear()
         }
 
-        // Menerima data dari activity sebelumnya
         val nama = intent.getStringExtra("NAMA_USER")
         val usia = intent.getStringExtra("USIA_USER")
         val tanggalLahir = intent.getStringExtra("TANGGAL_LAHIR_USER")
@@ -44,7 +40,6 @@ class AssessmentFourthActivity : AppCompatActivity() {
         }
 
         binding.btnBerikutnya.setOnClickListener {
-            // Daftar checkbox yang bisa dipilih
             val checkboxes = listOf(
                 binding.cbTumor,
                 binding.cbDiabetes,
@@ -54,7 +49,6 @@ class AssessmentFourthActivity : AppCompatActivity() {
                 binding.cbTidakTahu
             )
 
-            // Cek apakah ada yang dicentang atau cbLainnya aktif dengan isian teks
             val isAnyChecked = checkboxes.any { it.isChecked } ||
                     (binding.cbLainnya.isChecked && binding.etLainnya.text.toString().isNotBlank())
 

@@ -23,16 +23,11 @@ class QuestionnaireFourthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Inisialisasi binding sebelum enableEdgeToEdge()
         binding = ActivityQuestionnaireFourthBinding.inflate(layoutInflater)
-
-        enableEdgeToEdge()  // Pastikan dipanggil setelah binding diinisialisasi
+        enableEdgeToEdge()
         setContentView(binding.root)
 
-        // Pastikan binding.root tidak null sebelum dipakai
         binding.root.setOnApplyWindowInsetsListener { v, insets ->
-            // Implementasi listener di sini
             insets
         }
 
@@ -49,7 +44,7 @@ class QuestionnaireFourthActivity : AppCompatActivity() {
         for (radioButton in radioButtons) {
             radioButton.setOnClickListener {
                 for (rb in radioButtons) {
-                    rb.isChecked = rb == radioButton // Memastikan hanya satu yang terpilih
+                    rb.isChecked = rb == radioButton
                 }
                 selectedValue = when (radioButton) {
                     rbEmpatSatu -> 3.0

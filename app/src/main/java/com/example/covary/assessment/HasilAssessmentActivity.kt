@@ -109,8 +109,6 @@ class HasilAssessmentActivity : AppCompatActivity() {
 
         binding.btnBerikutnya.setOnClickListener {
             val userId = FirebaseAuth.getInstance().currentUser!!.uid
-
-            // Membuat data user untuk diupdate
             val updatedUserData = hashMapOf(
                 "nama" to nama,
                 "usia" to usiaUser,
@@ -127,12 +125,10 @@ class HasilAssessmentActivity : AppCompatActivity() {
                 "maksimal_lemak" to lemak
             )
 
-            // Menggunakan set() untuk memperbarui dokumen atau menambah field baru
             db.collection("users").document(userId)
-                .set(updatedUserData, com.google.firebase.firestore.SetOptions.merge())  // Pastikan data baru digabungkan dengan data lama
+                .set(updatedUserData, com.google.firebase.firestore.SetOptions.merge())
                 .addOnSuccessListener {
                     Toast.makeText(this, "Data berhasil diperbarui", Toast.LENGTH_SHORT).show()
-                    // Setelah update selesai, lanjutkan ke MainActivity
                     val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     startActivity(intent)

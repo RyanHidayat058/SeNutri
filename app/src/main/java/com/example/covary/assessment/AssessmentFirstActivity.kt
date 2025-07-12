@@ -36,9 +36,6 @@ class AssessmentFirstActivity : AppCompatActivity() {
         }
     }
     override fun onBackPressed() {
-        // Do nothing or show a dialog confirmation, if that’s the intended behavior.
-        // Example:
-        // showExitConfirmationDialog()
         super.onBackPressed()
     }
 }

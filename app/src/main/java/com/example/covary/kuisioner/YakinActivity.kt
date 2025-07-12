@@ -27,16 +27,11 @@ class YakinActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Inisialisasi binding sebelum enableEdgeToEdge()
         binding = ActivityYakinBinding.inflate(layoutInflater)
-
-        enableEdgeToEdge()  // Pastikan dipanggil setelah binding diinisialisasi
+        enableEdgeToEdge()
         setContentView(binding.root)
 
-        // Pastikan binding.root tidak null sebelum dipakai
         binding.root.setOnApplyWindowInsetsListener { v, insets ->
-            // Implementasi listener di sini
             insets
         }
 

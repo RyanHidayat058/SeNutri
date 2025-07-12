@@ -18,23 +18,16 @@ class AssessmentThirdActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAssessmentThirdBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Inisialisasi binding sebelum enableEdgeToEdge()
         binding = ActivityAssessmentThirdBinding.inflate(layoutInflater)
-
-        enableEdgeToEdge()  // Pastikan dipanggil setelah binding diinisialisasi
+        enableEdgeToEdge()
         setContentView(binding.root)
-
-        // Pastikan binding.root tidak null sebelum dipakai
         binding.root.setOnApplyWindowInsetsListener { v, insets ->
-            // Implementasi listener di sini
             insets
         }
 
         val beratEditText = findViewById<EditText>(R.id.beratKamu)
         val tinggiEditText = findViewById<EditText>(R.id.tinggiKamu)
 
-        //Menerima data dari activity sebelumnya
         val nama = intent.getStringExtra("NAMA_USER")
         val usia = intent.getStringExtra("USIA_USER")
         val tanggalLahir = intent.getStringExtra("TANGGAL_LAHIR_USER")

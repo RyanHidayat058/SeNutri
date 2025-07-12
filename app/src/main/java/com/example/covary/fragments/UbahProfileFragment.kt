@@ -78,29 +78,6 @@ class UbahProfileFragment : Fragment() {
         val imgEditIcon: ImageView = view.findViewById(R.id.imgEditIcon)
         imgProfile = view.findViewById(R.id.imgProfile)
 
-        val userId = auth.currentUser?.uid
-        if (userId != null) {
-            firestore.collection("users").document(userId).get()
-                .addOnSuccessListener { document ->
-                    if (document != null && document.exists()) {
-                        val imageUrl = document.getString("profileImageUri")
-                        if (!imageUrl.isNullOrEmpty()) {
-                            Glide.with(this)
-                                .load(imageUrl)
-                                .placeholder(R.drawable.avatar_user)
-                                .into(imgProfile)
-                        } else {
-                            imgProfile.setImageResource(R.drawable.avatar_user)
-                        }
-                    } else {
-                        imgProfile.setImageResource(R.drawable.avatar_user)
-                    }
-                }
-                .addOnFailureListener {
-                    imgProfile.setImageResource(R.drawable.avatar_user)
-                }
-        }
-
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
 

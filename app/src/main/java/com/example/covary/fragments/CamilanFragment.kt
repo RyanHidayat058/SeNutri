@@ -46,15 +46,20 @@ class CamilanFragment : Fragment() {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
+        val fabButton: View = view.findViewById(R.id.fabButton)
+        fabButton.setOnClickListener {
+            navigateToDaftarMakananDenganJenis("Camilan")
+        }
+
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
         recyclerView = view.findViewById(R.id.rvCamilan)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        fetchDataMakanMalam()
+        fetchDataCamilan()
     }
 
-    private fun fetchDataMakanMalam() {
+    private fun fetchDataCamilan() {
         val uid = auth.currentUser?.uid ?: return
         val dateFormat = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale("id"))
         val currentDate = dateFormat.format(Calendar.getInstance().time)
@@ -144,5 +149,17 @@ class CamilanFragment : Fragment() {
         }.addOnFailureListener {
             Toast.makeText(requireContext(), "Gagal memuat data user.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun navigateToDaftarMakananDenganJenis(jenisMakanan: String) {
+        val fragment = DaftarMakananFragment()
+        val bundle = Bundle()
+        bundle.putString("jenisMakanan", jenisMakanan)
+        fragment.arguments = bundle
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

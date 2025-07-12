@@ -23,7 +23,6 @@ class DetailDaftarMakananFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_detail_daftar_makanan, container, false)
     }
 
@@ -49,7 +48,7 @@ class DetailDaftarMakananFragment : Fragment() {
         val baseProtein = menuItem?.protein ?: 0.0
         val baseLemak = menuItem?.lemak ?: 0.0
 
-        var porsi = 1
+        var porsi = 1.0
 
         fun updateNutritionDisplay() {
             val totalGram = baseGram * porsi
@@ -64,21 +63,32 @@ class DetailDaftarMakananFragment : Fragment() {
             tvKarbohidrat.text = "Karbohidrat: ${"%.1f".format(totalKarbo)}g"
             tvProtein.text = "Protein: ${"%.1f".format(totalProtein)}g"
             tvLemak.text = "Lemak: ${"%.1f".format(totalLemak)}g"
-            tvPorsi.text = porsi.toString()
+            tvPorsi.text = when (porsi) {
+                0.25 -> "1/4"
+                0.5 -> "1/2"
+                else -> porsi.toInt().toString()
+            }
         }
 
         updateNutritionDisplay()
 
         btnPlus.setOnClickListener {
-            porsi++
+            porsi = when (porsi) {
+                0.25 -> 0.5
+                0.5 -> 1.0
+                else -> porsi + 1.0
+            }
             updateNutritionDisplay()
         }
 
         btnMinus.setOnClickListener {
-            if (porsi > 1) {
-                porsi--
-                updateNutritionDisplay()
+            porsi = when (porsi) {
+                in 2.0..Double.MAX_VALUE -> porsi - 1.0
+                1.0 -> 0.5
+                0.5 -> 0.25
+                else -> 0.25
             }
+            updateNutritionDisplay()
         }
 
         // Tombol back

@@ -25,9 +25,6 @@ class DailyFragment : Fragment() {
     private var _binding: FragmentDailyBinding? = null
     private val binding get() = _binding!!
 
-    private var isFabOpen = false
-    private var isAnimating = false
-
     private var targetKarbo: Double = 0.0
     private var targetProtein: Double = 0.0
     private var targetLemak: Double = 0.0
@@ -43,32 +40,6 @@ class DailyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Setup FAB main button toggle menu
-        binding.fabMain.setOnClickListener {
-            toggleFabMenu()
-        }
-
-        // Setup FAB menu item click listeners, navigasi ke DaftarMakananFragment
-        val fabItems = listOf(
-            binding.fabSarapan,
-            binding.fabMakanSiang,
-            binding.fabCamilan,
-            binding.fabMakanMalam
-        )
-        binding.fabSarapan.setOnClickListener {
-            navigateToDaftarMakananDenganJenis("Sarapan")
-        }
-        binding.fabMakanSiang.setOnClickListener {
-            navigateToDaftarMakananDenganJenis("Makan Siang")
-        }
-        binding.fabCamilan.setOnClickListener {
-            navigateToDaftarMakananDenganJenis("Camilan")
-        }
-        binding.fabMakanMalam.setOnClickListener {
-            navigateToDaftarMakananDenganJenis("Makan Malam")
-        }
-
-        // Setup CardView click listeners untuk navigasi ke fragment spesifik
         binding.cardSarapan.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, SarapanFragment())
@@ -92,20 +63,6 @@ class DailyFragment : Fragment() {
                 .replace(R.id.fragmentContainer, MakanMalamFragment())
                 .addToBackStack(null)
                 .commit()
-        }
-
-        // Inisialisasi FAB menu & items visibility dan posisi
-        binding.fabMenu.visibility = View.GONE
-        val itemLayouts = listOf(
-            binding.itemSarapan,
-            binding.itemMakanSiang,
-            binding.itemCamilan,
-            binding.itemMakanMalam
-        )
-        itemLayouts.forEach {
-            it.visibility = View.INVISIBLE
-            it.alpha = 0f
-            it.translationY = 0f
         }
 
         val db = FirebaseFirestore.getInstance()
@@ -200,53 +157,6 @@ class DailyFragment : Fragment() {
             .replace(R.id.fragmentContainer, fragment)
             .addToBackStack(null)
             .commit()
-    }
-
-    private fun toggleFabMenu() {
-        if (isAnimating) return
-        isAnimating = true
-
-        val distanceDp = 80
-        val distancePx = distanceDp * resources.displayMetrics.density
-
-        val itemLayouts = listOf(binding.itemSarapan, binding.itemMakanSiang, binding.itemCamilan, binding.itemMakanMalam)
-
-        if (!isFabOpen) {
-            binding.fabMenu.visibility = View.VISIBLE
-            itemLayouts.forEachIndexed { index, item ->
-                item.visibility = View.VISIBLE
-                item.alpha = 0f
-                item.translationY = distancePx * (itemLayouts.size - index)
-                item.animate()
-                    .translationY(0f)
-                    .alpha(1f)
-                    .setDuration(300)
-                    .withEndAction {
-                        if (index == itemLayouts.lastIndex) {
-                            isAnimating = false
-                        }
-                    }
-                    .start()
-            }
-            binding.fabMain.animate().rotation(45f).setDuration(300).start()
-        } else {
-            itemLayouts.forEachIndexed { index, item ->
-                item.animate()
-                    .translationY(distancePx * (itemLayouts.size - index))
-                    .alpha(0f)
-                    .setDuration(300)
-                    .withEndAction {
-                        item.visibility = View.INVISIBLE
-                        if (index == itemLayouts.lastIndex) {
-                            binding.fabMenu.visibility = View.GONE
-                            isAnimating = false
-                        }
-                    }
-                    .start()
-            }
-            binding.fabMain.animate().rotation(0f).setDuration(300).start()
-        }
-        isFabOpen = !isFabOpen
     }
 
     private fun updateGiziUI(

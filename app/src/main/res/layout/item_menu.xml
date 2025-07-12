@@ -25,6 +25,7 @@
             <TextView
                 android:id="@+id/tvName"
                 android:textColor="@android:color/white"
+                android:fontFamily="@font/montserrat_regular"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
@@ -43,6 +44,7 @@
                     android:textColor="@android:color/white"
                     android:text="Kalori:250g"
                     android:layout_width="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
                     android:layout_row="0"
@@ -51,6 +53,7 @@
 
                 <TextView
                     android:id="@+id/tvCarbo"
+                    android:fontFamily="@font/montserrat_regular"
                     android:textColor="@android:color/white"
                     android:text="Karbo:35g"
                     android:layout_width="wrap_content"
@@ -64,6 +67,7 @@
                 <TextView
                     android:id="@+id/tvProtein"
                     android:textColor="@android:color/white"
+                    android:fontFamily="@font/montserrat_regular"
                     android:text="Protein:5g"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,6 +80,7 @@
                     android:id="@+id/tvFat"
                     android:textColor="@android:color/white"
                     android:text="Lemak:10g"
+                    android:fontFamily="@font/montserrat_regular"
                     android:layout_width="wrap_content"
                     android:paddingLeft="10dp"
                     android:layout_height="wrap_content"

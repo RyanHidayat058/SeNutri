@@ -121,7 +121,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="right"
+        android:gravity="center"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -133,7 +133,7 @@
             android:id="@+id/btnMinus"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center_vertical"
             android:background="@drawable/circle_blue"
             android:src="@drawable/ic_min"
             android:contentDescription="Kurangi" />
@@ -145,15 +145,15 @@
             android:fontFamily="@font/montserrat_regular"
             android:text="1"
             android:textColor="@android:color/black"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:textSize="@dimen/text_large" />
 
         <ImageButton
             android:id="@+id/btnPlus"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center_vertical"
             android:background="@drawable/circle_blue"
             android:src="@drawable/ic_add"
             android:contentDescription="Tambah" />
