@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.covary.R
+import com.example.covary.about.AboutUsActivity
 import com.example.covary.assessment.AssessmentFirstActivity
 import com.example.covary.databinding.FragmentProfileBinding
 import com.example.covary.login.LoginActivity
@@ -57,6 +58,11 @@ class ProfileFragment : Fragment() {
                 .replace(R.id.fragmentContainer, UbahPasswordFragment())
                 .addToBackStack(null)
                 .commit()
+        }
+
+        binding.ivAboutUs.setOnClickListener {
+            val intent = Intent(requireContext(), AboutUsActivity::class.java)
+            startActivity(intent)
         }
 
         binding.btnUpdateDataDiri.setOnClickListener {

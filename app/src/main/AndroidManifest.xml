@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Covary"
         tools:targetApi="31">
         <activity
+            android:name=".about.AboutUsActivity"
+            android:exported="false" />
+        <activity
             android:name=".kuisioner.YakinActivity"
             android:exported="false" />
         <activity
