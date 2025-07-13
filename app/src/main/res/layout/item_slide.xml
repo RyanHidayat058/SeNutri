@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_medium"
         android:textColor="@color/white"
+        android:justificationMode="inter_word"
         android:fontFamily="@font/montserrat_regular"
         android:maxLines="3"
         android:ellipsize="end"

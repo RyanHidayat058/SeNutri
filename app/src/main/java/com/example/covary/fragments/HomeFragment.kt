@@ -77,7 +77,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnRekomendasiClickListener, HomeAda
                     when (penyakit) {
                         "Tumor/Kanker" -> SliderItem(
                             "Tumor/Kanker",
-                            "Definisi/jenis: Tumor ganas adalah pertumbuhan sel abnormal yang tidak terkendali dan bersifat kanker, dapat menyebar serta merusak sel normal di sekitarnya. Penanganan segera oleh dokter, baik dengan atau tanpa operasi, diperlukan.\n" +
+                            "Tumor ganas adalah pertumbuhan sel abnormal yang tidak terkendali dan bersifat kanker. Tumor ini dapat menyebar ke bagian tubuh lain (metastasis) dan merusak jaringan serta organ tubuh yang sehat. Penanganan tumor ganas melibatkan berbagai metode, termasuk operasi, kemoterapi, radioterapi, dan imunoterapi, tergantung pada jenis kanker dan stadium penyakit. Kanker dapat menyebar melalui darah dan sistem limfatik, menyebabkan metastasis ke organ tubuh lainnya, yang membuat pengobatan semakin kompleks (American Cancer Society, 2023)" +
                                     "\n" +
                                     "Pola hidup sehat: Dengan pola hidup sehat seperti makan bergizi, olahraga, cukup istirahat, hindari rokok dan alkohol, serta rutin kontrol ke dokter, Anda mendukung proses penyembuhan. Terus berjuang, harapan kesembuhan selalu ada!\n" +
                                     "\n" +
@@ -86,7 +86,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnRekomendasiClickListener, HomeAda
                         )
                         "Diabetes" -> SliderItem(
                             "Diabetes",
-                            "Definisi/Jenis: Diabetes adalah kondisi medis di mana kadar gula darah (glukosa) dalam tubuh terlalu tinggi. Terdapat dua jenis utama diabetes: Diabetes Tipe 1, di mana tubuh tidak dapat memproduksi insulin, dan Diabetes Tipe 2, di mana tubuh tidak dapat menggunakan insulin secara efektif. Penanganan yang tepat melalui perubahan gaya hidup dan obat-obatan sangat diperlukan untuk mengontrol kadar gula darah.\n" +
+                            "Diabetes adalah gangguan metabolik yang terjadi ketika tubuh tidak dapat memproduksi insulin (diabetes tipe 1) atau tidak dapat menggunakan insulin secara efektif (diabetes tipe 2). Diabetes tipe 1 biasanya didiagnosis pada usia muda, sementara diabetes tipe 2 lebih sering berkembang pada orang dewasa akibat pola hidup yang tidak sehat. Diabetes yang tidak dikelola dengan baik dapat menyebabkan komplikasi serius, termasuk kerusakan pada ginjal, saraf, dan jantung. Diabetes tipe 2 sering dapat dikendalikan melalui perubahan gaya hidup, namun diabetes tipe 1 memerlukan penggunaan insulin seumur hidup (National Institute of Diabetes and Digestive and Kidney Diseases [NIDDK], 2022)." +
                                     "\n" +
                                     "Pola Hidup Sehat: Untuk mengelola diabetes, penting untuk menjaga pola makan sehat, rutin berolahraga, cukup istirahat, menghindari rokok dan alkohol, serta memantau kadar gula darah secara teratur. Dengan pola hidup yang tepat, Anda dapat menjaga kesehatan dan mencegah komplikasi.\n" +
                                     "\n" +
@@ -95,7 +95,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnRekomendasiClickListener, HomeAda
                         )
                         "Hipertensi" -> SliderItem(
                             "Hipertensi",
-                            "Definisi/Jenis: Hipertensi, atau tekanan darah tinggi, adalah kondisi di mana tekanan darah dalam arteri meningkat secara konsisten. Jika tidak dikendalikan, hipertensi dapat menyebabkan kerusakan pada jantung, pembuluh darah, ginjal, dan organ tubuh lainnya. Hipertensi sering kali disebut \"pembunuh diam-diam\" karena gejalanya yang sering tidak terlihat.\n" +
+                            "Hipertensi adalah kondisi medis di mana tekanan darah dalam pembuluh darah meningkat secara terus-menerus. Tekanan darah tinggi dapat merusak pembuluh darah dan jantung, serta meningkatkan risiko stroke, serangan jantung, dan gagal ginjal. Hipertensi sering disebut \"silent killer\" karena biasanya tidak menunjukkan gejala sampai kerusakan yang signifikan terjadi. Hipertensi dapat menyebabkan kerusakan serius pada pembuluh darah dan organ vital jika tidak segera ditangani (World Health Organization [WHO], 2023)." +
                                     "\n" +
                                     "Pola Hidup Sehat: Untuk mengelola hipertensi, penting untuk menjaga pola makan rendah garam, rutin berolahraga, menjaga berat badan ideal, menghindari stres, serta tidak merokok dan membatasi konsumsi alkohol. Pemantauan tekanan darah secara teratur juga sangat penting untuk mencegah komplikasi.\n" +
                                     "\n" +
@@ -104,7 +104,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnRekomendasiClickListener, HomeAda
                         )
                         "Kolesterol" -> SliderItem(
                             "Kolesterol",
-                            "Definisi/Jenis: Kolesterol adalah lemak yang ditemukan dalam darah yang dibutuhkan tubuh untuk berfungsi dengan baik. Namun, kadar kolesterol yang tinggi, terutama kolesterol LDL (kolesterol jahat), dapat menyebabkan penumpukan plak di dinding pembuluh darah, meningkatkan risiko penyakit jantung dan stroke. Terdapat dua jenis utama kolesterol: HDL (kolesterol baik) dan LDL (kolesterol jahat).\n" +
+                            "Kolesterol adalah jenis lemak yang ditemukan dalam darah yang diperlukan tubuh untuk membangun sel-sel sehat. Namun, kolesterol tinggi, terutama kolesterol LDL (kolesterol jahat), dapat menyebabkan penumpukan plak dalam pembuluh darah, yang meningkatkan risiko penyakit jantung dan stroke. Kolesterol HDL (kolesterol baik) membantu mengurangi risiko ini dengan mengangkut kolesterol jahat kembali ke hati. Tingginya kadar kolesterol LDL dapat menyebabkan aterosklerosis, yaitu penumpukan plak yang menyempitkan pembuluh darah (Mayo Clinic, 2023)." +
                                     "\n" +
                                     "Pola Hidup Sehat: Untuk mengelola kadar kolesterol, penting untuk menjaga pola makan rendah lemak jenuh, rutin berolahraga, menjaga berat badan ideal, tidak merokok, dan membatasi konsumsi alkohol. Pemantauan kadar kolesterol secara rutin juga penting untuk menjaga kesehatan jantung.\n" +
                                     "\n" +
@@ -113,7 +113,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnRekomendasiClickListener, HomeAda
                         )
                         "Asam Urat" -> SliderItem(
                             "Asam Urat",
-                            "Definisi/Jenis: Asam urat adalah zat yang terbentuk ketika tubuh memecah purin, yang ditemukan dalam makanan tertentu dan sel tubuh. Kadar asam urat yang tinggi dapat menyebabkan kristal terbentuk di persendian, menyebabkan nyeri dan peradangan, kondisi yang dikenal sebagai gout (radang sendi akibat asam urat).\n" +
+                            "Asam urat terbentuk ketika tubuh memecah purin, yang ditemukan dalam makanan dan sel tubuh. Jika kadar asam urat terlalu tinggi, kristal dapat terbentuk di persendian, menyebabkan nyeri hebat dan peradangan, yang dikenal sebagai gout atau radang sendi akibat asam urat. Penyakit gout sering menyebabkan serangan mendalam pada sendi-sendi besar, seperti ibu jari kaki, yang menimbulkan rasa sakit yang parah (Cleveland Clinic, 2023)." +
                                     "\n" +
                                     "Pola Hidup Sehat: Untuk mengelola asam urat, penting untuk menjaga pola makan rendah purin, menghindari alkohol, menjaga berat badan ideal, rutin berolahraga, dan cukup minum air putih. Menghindari makanan tinggi purin seperti daging merah, makanan laut, dan minuman manis juga dapat membantu.\n" +
                                     "\n" +
@@ -121,8 +121,8 @@ class HomeFragment : Fragment(), HomeAdapter.OnRekomendasiClickListener, HomeAda
                             R.drawable.asamurat_foto
                         )
                         else -> SliderItem(
-                            "Jaga Kesehatan Tubuh",
-                            "Untuk hidup sehat, penting untuk mengonsumsi makanan bergizi, seperti sayur, buah, dan sumber protein yang sehat. Rutin berolahraga, tidur cukup, mengelola stres, tidak merokok, dan membatasi konsumsi alkohol juga sangat penting untuk menjaga kesehatan tubuh dan pikiran.",
+                            "Pola Hidup Sehat Secara Umum",
+                            "Pola hidup sehat membantu meningkatkan energi, memperbaiki kualitas tidur, mengurangi risiko penyakit kronis, dan memperkuat sistem imun tubuh. Dengan makan makanan bergizi, berolahraga teratur, tidur cukup, serta mengelola stres, kita dapat menjaga kesehatan tubuh dan pikiran secara optimal.",
                             R.drawable.hidupsehat_foto
                         )
                     }
