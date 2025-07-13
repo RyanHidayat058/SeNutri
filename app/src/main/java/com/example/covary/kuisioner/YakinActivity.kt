@@ -96,7 +96,7 @@ class YakinActivity : AppCompatActivity() {
 
         binding.namaUser.text = "Nama: $nama"
         binding.usiaUser.text = "Usia: $usiaUser tahun"
-        binding.tanggalLahirUser.text = "$tinggi cm"
+        binding.tanggalLahirUser.text = "Tanggal Lahir: $tanggalLahir"
         binding.genderUser.text = "Jenis Kelamin: $gender"
         binding.beratUser.text = "Berat: $berat kg"
         binding.tinggiUser.text = "Tinggi: $tinggi cm"
