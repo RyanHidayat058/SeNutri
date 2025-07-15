@@ -56,7 +56,6 @@ class DaftarMakananFragment : Fragment() {
         if (!::menuAdapter.isInitialized) {
             fetchData()
         } else {
-            // Kalau sudah, tetap tampilkan hasil sebelumnya
             recyclerView.adapter = menuAdapter
         }
     }

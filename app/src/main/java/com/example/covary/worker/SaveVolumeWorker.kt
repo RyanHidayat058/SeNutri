@@ -22,14 +22,13 @@ class SaveVolumeWorker(appContext: Context, workerParams: WorkerParameters) :
 
         val firestore = FirebaseFirestore.getInstance()
 
-        val volumeMl = prefs.getInt("current_volume", 0) // default 0 ml sekarang
+        val volumeMl = prefs.getInt("current_volume", 0)
 
         val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
         val data = hashMapOf("volumeMl" to volumeMl)
 
         return try {
-            // Simpan volume saat ini ke Firestore tanggal hari ini
             Tasks.await(
                 firestore.collection("users")
                     .document(userId)
@@ -37,7 +36,7 @@ class SaveVolumeWorker(appContext: Context, workerParams: WorkerParameters) :
                     .document(today)
                     .set(data)
             )
-            // Setelah berhasil, reset prefs ke 0
+
             prefs.edit().putInt("current_volume", 0).apply()
 
             Result.success()

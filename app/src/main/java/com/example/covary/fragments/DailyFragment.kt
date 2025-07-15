@@ -83,7 +83,6 @@ class DailyFragment : Fragment() {
         val totalIdMap = mutableMapOf<String, Int>()
         var jenisSelesai = 0
 
-// Ambil nilai kebutuhan dari akun user (target maksimal)
         db.collection("users").document(userId).get()
             .addOnSuccessListener { document ->
                 if (document != null) {

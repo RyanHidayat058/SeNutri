@@ -66,6 +66,10 @@ class RegisterActivity : AppCompatActivity() {
                     binding.email.error = "Email tidak boleh kosong"
                     binding.email.requestFocus()
                 }
+                !email.matches(Regex("^[A-Za-z0-9._%+-]+@gmail\\.com$")) -> {
+                    binding.email.error = "Gunakan alamat email yang valid (contoh: nama@gmail.com)"
+                    binding.email.requestFocus()
+                }
                 pass.isEmpty() -> {
                     binding.password.error = "Kata sandi tidak boleh kosong"
                     binding.password.requestFocus()
@@ -105,7 +109,7 @@ class RegisterActivity : AppCompatActivity() {
                                                 .document(user.uid)
                                                 .set(userData)
                                                 .addOnSuccessListener {
-                                                    Toast.makeText(this, "Verifikasi email telah dikirim. Silakan periksa kotak masuk pada email Anda.", Toast.LENGTH_LONG).show()
+                                                    Toast.makeText(this, "Verifikasi email telah dikirim. Periksa kotak masuk atau spam pada email Anda.", Toast.LENGTH_LONG).show()
                                                     startActivity(Intent(this, LoginActivity::class.java))
                                                     finish()
                                                 }

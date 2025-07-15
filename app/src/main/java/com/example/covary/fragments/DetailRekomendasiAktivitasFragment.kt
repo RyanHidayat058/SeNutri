@@ -48,7 +48,6 @@ class DetailRekomendasiAktivitasFragment : Fragment() {
 
         val saran = arguments?.getString("saran_aktivitas") ?: "Data tidak tersedia"
 
-        // Ambil data kategoriIMT dari Firestore
         if (userId.isNotEmpty()) {
             db.collection("users")
                 .document(userId)

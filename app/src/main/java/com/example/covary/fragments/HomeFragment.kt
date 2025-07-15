@@ -28,16 +28,12 @@ class HomeFragment : Fragment(), HomeAdapter.OnRekomendasiClickListener, HomeAda
 
         recyclerView = view.findViewById(R.id.recyclerViewHome)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
         loadPenyakitUser()
-
         return view
     }
 
     override fun onRekomendasiClicked(data: Bundle) {
-        // data berisi semua info slider: title, description, imageResId
-
-        val detailFragment = DetailSliderFragment() // sesuaikan nama fragment detailnya
+        val detailFragment = DetailSliderFragment()
         detailFragment.arguments = data
 
         parentFragmentManager.beginTransaction()
@@ -54,7 +50,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnRekomendasiClickListener, HomeAda
         detailFragment.arguments = bundle
 
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, detailFragment)  // Ganti dengan container id yang sesuai di layout
+            .replace(R.id.fragmentContainer, detailFragment)
             .addToBackStack(null)
             .commit()
     }

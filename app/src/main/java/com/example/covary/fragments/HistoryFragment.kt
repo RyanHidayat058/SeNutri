@@ -49,7 +49,6 @@ class HistoryFragment : Fragment() {
         userId = user.uid
         Log.d("FirebaseAuth", "User ID: $userId")
 
-        // 🔥 Ambil data dari /users/{uid}/historyIndex/index
         val indexRef = firestore.collection("users")
             .document(userId!!)
             .collection("historyIndex")

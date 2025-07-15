@@ -48,20 +48,39 @@ class LoginActivity : AppCompatActivity() {
         val sessionManager = SessionManager(this)
         val currentUser = firebaseAuth.currentUser
 
-        if (currentUser != null && currentUser.isEmailVerified && sessionManager.hasLoggedIn()) {
+
+        if (currentUser != null && sessionManager.hasLoggedIn()) {
             val userDocRef = firestore.collection("users").document(currentUser.uid)
+
             userDocRef.get().addOnSuccessListener { document ->
                 if (document.exists()) {
                     val nama = document.getString("nama")
-                    if (nama.isNullOrEmpty()) {
-                        startActivity(Intent(this, AssessmentFirstActivity::class.java))
-                    } else {
-                        startActivity(Intent(this, MainActivity::class.java))
+                    val isPasswordCreated = document.getBoolean("isPasswordCreated") ?: false
+                    val providers = currentUser.providerData.map { it.providerId }
+                    val isFromGoogle = providers.contains("google.com")
+
+                    // Log untuk debug
+                    android.util.Log.d("LoginDebug", "isFromGoogle=$isFromGoogle, isPasswordCreated=$isPasswordCreated, nama=$nama")
+
+                    // ✅ Urutan harus seperti ini:
+                    when {
+                        isFromGoogle && !isPasswordCreated -> {
+                            startActivity(Intent(this, PasswordSetupActivity::class.java))
+                        }
+                        nama.isNullOrEmpty() -> {
+                            startActivity(Intent(this, AssessmentFirstActivity::class.java))
+                        }
+                        else -> {
+                            startActivity(Intent(this, MainActivity::class.java))
+                        }
                     }
+
                     finish()
+                } else {
+                    Toast.makeText(this, "Dokumen user tidak ditemukan", Toast.LENGTH_SHORT).show()
                 }
             }.addOnFailureListener {
-                // Gagal baca Firestore
+                Toast.makeText(this, "Gagal membaca data user", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -120,23 +139,28 @@ class LoginActivity : AppCompatActivity() {
 
                     if (it.isSuccessful) {
                         val user = firebaseAuth.currentUser
-                        if (user != null && user.isEmailVerified) {
-                            sessionManager.setHasLoggedIn(true)
-                            val userDocRef = firestore.collection("users").document(user.uid)
-                            userDocRef.get().addOnSuccessListener { document ->
-                                val nama = document.getString("nama")
-                                if (nama.isNullOrEmpty()) {
-                                    startActivity(Intent(this, AssessmentFirstActivity::class.java))
-                                } else {
-                                    startActivity(Intent(this, MainActivity::class.java))
+                        if (user != null) {
+                            val providers = user.providerData.map { it.providerId }
+                            val isFromGoogle = providers.contains("google.com")
+
+                            if (isFromGoogle || user.isEmailVerified) {
+                                sessionManager.setHasLoggedIn(true)
+                                val userDocRef = firestore.collection("users").document(user.uid)
+                                userDocRef.get().addOnSuccessListener { document ->
+                                    val nama = document.getString("nama")
+                                    if (nama.isNullOrEmpty()) {
+                                        startActivity(Intent(this, AssessmentFirstActivity::class.java))
+                                    } else {
+                                        startActivity(Intent(this, MainActivity::class.java))
+                                    }
+                                    finish()
+                                }.addOnFailureListener {
+                                    Toast.makeText(this, "Gagal membaca data", Toast.LENGTH_SHORT).show()
                                 }
-                                finish()
-                            }.addOnFailureListener {
-                                Toast.makeText(this, "Gagal membaca data", Toast.LENGTH_SHORT).show()
+                            } else {
+                                firebaseAuth.signOut()
+                                Toast.makeText(this, "Email Anda belum diverifikasi. Silakan periksa kotak masuk Anda.", Toast.LENGTH_LONG).show()
                             }
-                        } else {
-                            firebaseAuth.signOut()
-                            Toast.makeText(this, "Email Anda belum diverifikasi. Silakan periksa kotak masuk Anda.", Toast.LENGTH_LONG).show()
                         }
                     } else {
                         Toast.makeText(this, "Masuk dengan email gagal atau periksa koneksi anda", Toast.LENGTH_SHORT).show()
@@ -222,31 +246,46 @@ class LoginActivity : AppCompatActivity() {
                     Handler(Looper.getMainLooper()).postDelayed({
                         val user = firebaseAuth.currentUser
                         user?.let { currentUser ->
+
                             val userDocRef = firestore.collection("users").document(currentUser.uid)
+
                             userDocRef.get().addOnSuccessListener { document ->
                                 if (!document.exists()) {
                                     val userData = hashMapOf(
                                         "nama" to "",
                                         "usia" to 0,
                                         "jenisKelamin" to "",
-                                        "email" to currentUser.email.orEmpty()
+                                        "email" to currentUser.email.orEmpty(),
+                                        "isPasswordCreated" to false
                                     )
-                                    userDocRef.set(userData)
-                                        .addOnSuccessListener {
-                                            SessionManager(this).setHasLoggedIn(true)
+                                    userDocRef.set(userData).addOnSuccessListener {
+                                        SessionManager(this).setHasLoggedIn(true)
 
+                                        val providers = currentUser.providerData.map { it.providerId }
+                                        if (providers.contains("google.com") && !providers.contains("password")) {
+                                            startActivity(Intent(this, PasswordSetupActivity::class.java))
+                                        } else {
                                             continueAfterLogin(userDocRef)
                                         }
-                                        .addOnFailureListener {
-                                            binding.progressBar.visibility = android.view.View.GONE
-                                            binding.btnLogin.isEnabled = true
-                                            binding.masukDenganGoogle.isEnabled = true
-                                            Toast.makeText(this, "Gagal menyimpan data", Toast.LENGTH_SHORT).show()
-                                        }
+                                        finish()
+
+                                    }.addOnFailureListener {
+                                        binding.progressBar.visibility = android.view.View.GONE
+                                        binding.btnLogin.isEnabled = true
+                                        binding.masukDenganGoogle.isEnabled = true
+                                        Toast.makeText(this, "Gagal menyimpan data", Toast.LENGTH_SHORT).show()
+                                    }
+
                                 } else {
                                     SessionManager(this).setHasLoggedIn(true)
 
-                                    continueAfterLogin(userDocRef)
+                                    val providers = currentUser.providerData.map { it.providerId }
+                                    if (providers.contains("google.com") && !providers.contains("password")) {
+                                        startActivity(Intent(this, PasswordSetupActivity::class.java))
+                                    } else {
+                                        continueAfterLogin(userDocRef)
+                                    }
+                                    finish()
                                 }
                             }.addOnFailureListener {
                                 binding.progressBar.visibility = android.view.View.GONE
@@ -254,15 +293,15 @@ class LoginActivity : AppCompatActivity() {
                                 binding.masukDenganGoogle.isEnabled = true
                                 Toast.makeText(this, "Gagal membaca data user", Toast.LENGTH_SHORT).show()
                             }
+
                         }
-                    }, 1000) // ⏳ Delay 4 detik sebelum baca firestore
+                    }, 1000)
                 } else {
                     binding.progressBar.visibility = android.view.View.GONE
                     binding.btnLogin.isEnabled = true
                     binding.masukDenganGoogle.isEnabled = true
                     Toast.makeText(this, "Autentikasi Firebase gagal", Toast.LENGTH_SHORT).show()
                 }
-
             }
     }
 

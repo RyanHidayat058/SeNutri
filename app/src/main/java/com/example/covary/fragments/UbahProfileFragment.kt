@@ -137,11 +137,9 @@ class UbahProfileFragment : Fragment() {
             }
             if (newJenisKelamin != "Pilih Jenis Kelamin") updateData["jenisKelamin"] = newJenisKelamin
 
-            // Tampilkan loading
             progressBar.visibility = View.VISIBLE
             btnKonfirmasi.isEnabled = false
 
-            // Delay 4 detik lalu update data
             view.postDelayed({
                 if (imageUri != null) {
                     uploadToImgur(imageUri!!,

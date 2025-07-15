@@ -60,7 +60,6 @@ class DetailHistoryFragment : Fragment() {
 
         view.findViewById<TextView>(R.id.tvTanggalDetail).text = tanggal
 
-        // Tombol back
         val backButton: ImageButton = view.findViewById(R.id.btnBack)
         backButton.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()

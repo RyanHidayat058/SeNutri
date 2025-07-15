@@ -24,7 +24,6 @@ class DetailSliderFragment : Fragment() {
         val tvDescription = view.findViewById<TextView>(R.id.tvDetailDescription)
         val ivImage = view.findViewById<ImageView>(R.id.ivDetailImage)
 
-        // Tombol back
         val backButton: ImageButton = view.findViewById(R.id.ic_btnBack)
         backButton.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
