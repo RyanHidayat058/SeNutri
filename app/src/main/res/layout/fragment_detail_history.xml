@@ -43,15 +43,14 @@
         android:id="@+id/tvTanggalDetail"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_semibold"
         android:text="Tanggal"
         android:textSize="@dimen/text_semilarge"
-        android:textColor="@color/black"
-        android:paddingBottom="12dp"/>
+        android:textColor="@color/black"/>
 
     <LinearLayout
         android:id="@+id/cardAsupan"
@@ -241,7 +240,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_medium"
                 android:layout_weight="1"
-                android:text="Cairan Harian"
+                android:text="Asupan Cairan"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/text_medium" />
 
