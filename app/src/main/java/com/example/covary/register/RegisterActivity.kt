@@ -110,6 +110,7 @@ class RegisterActivity : AppCompatActivity() {
                                                 .set(userData)
                                                 .addOnSuccessListener {
                                                     Toast.makeText(this, "Verifikasi email telah dikirim. Periksa kotak masuk atau spam pada email Anda.", Toast.LENGTH_LONG).show()
+                                                    firebaseAuth.signOut()
                                                     startActivity(Intent(this, LoginActivity::class.java))
                                                     finish()
                                                 }

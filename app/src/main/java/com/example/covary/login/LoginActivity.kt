@@ -50,37 +50,38 @@ class LoginActivity : AppCompatActivity() {
 
 
         if (currentUser != null && sessionManager.hasLoggedIn()) {
-            val userDocRef = firestore.collection("users").document(currentUser.uid)
+            if (!currentUser.isEmailVerified) {
+                firebaseAuth.signOut()
+                sessionManager.setHasLoggedIn(false)
+            } else {
+                val userDocRef = firestore.collection("users").document(currentUser.uid)
 
-            userDocRef.get().addOnSuccessListener { document ->
-                if (document.exists()) {
-                    val nama = document.getString("nama")
-                    val isPasswordCreated = document.getBoolean("isPasswordCreated") ?: false
-                    val providers = currentUser.providerData.map { it.providerId }
-                    val isFromGoogle = providers.contains("google.com")
+                userDocRef.get().addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        val nama = document.getString("nama")
+                        val isPasswordCreated = document.getBoolean("isPasswordCreated") ?: false
+                        val providers = currentUser.providerData.map { it.providerId }
+                        val isFromGoogle = providers.contains("google.com")
 
-                    // Log untuk debug
-                    android.util.Log.d("LoginDebug", "isFromGoogle=$isFromGoogle, isPasswordCreated=$isPasswordCreated, nama=$nama")
+                        when {
+                            isFromGoogle && !isPasswordCreated -> {
+                                startActivity(Intent(this, PasswordSetupActivity::class.java))
+                            }
+                            nama.isNullOrEmpty() -> {
+                                startActivity(Intent(this, AssessmentFirstActivity::class.java))
+                            }
+                            else -> {
+                                startActivity(Intent(this, MainActivity::class.java))
+                            }
+                        }
 
-                    // ✅ Urutan harus seperti ini:
-                    when {
-                        isFromGoogle && !isPasswordCreated -> {
-                            startActivity(Intent(this, PasswordSetupActivity::class.java))
-                        }
-                        nama.isNullOrEmpty() -> {
-                            startActivity(Intent(this, AssessmentFirstActivity::class.java))
-                        }
-                        else -> {
-                            startActivity(Intent(this, MainActivity::class.java))
-                        }
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Dokumen user tidak ditemukan", Toast.LENGTH_SHORT).show()
                     }
-
-                    finish()
-                } else {
-                    Toast.makeText(this, "Dokumen user tidak ditemukan", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Gagal membaca data user", Toast.LENGTH_SHORT).show()
                 }
-            }.addOnFailureListener {
-                Toast.makeText(this, "Gagal membaca data user", Toast.LENGTH_SHORT).show()
             }
         }
 
