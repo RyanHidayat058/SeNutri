@@ -160,7 +160,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:text="Indeks Masa Tubuh (IMT)"
+                                android:text="Indeks Massa Tubuh (IMT)"
                                 android:textSize="@dimen/text_small"
                                 android:textStyle="bold"
                                 android:fontFamily="@font/montserrat_regular"
