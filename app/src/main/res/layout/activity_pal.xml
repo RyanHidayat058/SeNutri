@@ -63,7 +63,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tingkat Aktivitas Fisik (PAL) adalah angka yang menunjukkan tingkat aktivitas fisik seseorang dalam sehari-hari, yang digunakan untuk memperkirakan kebutuhan energi total mereka. PAL adalah rasio antara total pengeluaran energi harian dengan pengeluaran energi saat istirahat. \n\nDengan kata lain, PAL menggambarkan seberapa aktif seseorang secara keseluruhan, bukan hanya seberapa sering mereka berolahraga. "
+                    android:text="Physical Activity Level atau Tingkat Aktivitas Fisik (PAL) adalah angka yang menunjukkan tingkat aktivitas fisik seseorang dalam sehari-hari, yang digunakan untuk memperkirakan kebutuhan energi total mereka. PAL adalah rasio antara total pengeluaran energi harian dengan pengeluaran energi saat istirahat. \n\nDengan kata lain, PAL menggambarkan seberapa aktif seseorang secara keseluruhan, bukan hanya seberapa sering mereka berolahraga. "
                     android:textColor="@color/black"
                     android:justificationMode="inter_word"
                     android:textSize="@dimen/text_semilarge"
