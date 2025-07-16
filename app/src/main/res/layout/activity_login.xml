@@ -89,7 +89,7 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:text="Login"
+                android:text="Masuk"
                 android:backgroundTint="@null"
                 android:fontFamily="@font/montserrat_semibold"
                 android:background="@drawable/button_selector"
