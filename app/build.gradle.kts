@@ -23,10 +23,18 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("release.keystore")
-            storePassword = "zyranmax1"
-            keyAlias = "covary-release"
-            keyPassword = "zyranmax1"
+            // Load signing properties from local.properties if it exists
+            val localPropertiesFile = rootProject.file("local.properties")
+            val localProperties = java.util.Properties()
+            if (localPropertiesFile.exists()) {
+                localPropertiesFile.inputStream().use { localProperties.load(it) }
+            }
+
+            val keystorePath = localProperties.getProperty("RELEASE_KEYSTORE_FILE") ?: "release.keystore"
+            storeFile = file(keystorePath)
+            storePassword = localProperties.getProperty("RELEASE_KEYSTORE_PASSWORD") ?: "zyranmax1"
+            keyAlias = localProperties.getProperty("RELEASE_KEY_ALIAS") ?: "covary-release"
+            keyPassword = localProperties.getProperty("RELEASE_KEY_PASSWORD") ?: "zyranmax1"
         }
     }
 

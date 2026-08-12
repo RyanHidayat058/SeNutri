@@ -1,0 +1,15 @@
+## Konfigurasi Kredensial Lokal (local.properties)
+#
+# Salin file ini menjadi 'local.properties' di direktori root proyek Anda.
+# File 'local.properties' sudah diatur agar diabaikan oleh Git (.gitignore)
+# untuk menjaga agar data sensitif Anda tidak bocor ke publik.
+#
+# Di dalam Android Studio, Anda juga perlu mengatur SDK path di sini:
+# sdk.dir=C\:\\Users\\NamaUser\\AppData\\Local\\Android\\Sdk
+
+# Konfigurasi Keystore Release Aplikasi SeNutri
+# Hindari menyimpan password langsung (hardcoded) di app/build.gradle.kts!
+RELEASE_KEYSTORE_FILE=release.keystore
+RELEASE_KEYSTORE_PASSWORD=password_keystore_anda
+RELEASE_KEY_ALIAS=covary-release
+RELEASE_KEY_PASSWORD=password_key_anda

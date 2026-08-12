@@ -1,15 +1,60 @@
+# Built artifacts
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+
+# Gradle files
+.gradle/
+build/
+app/build/
+
+# Kotlin metadata build output
+.kotlin/
+.kotlin-compiler/
+
+# Android Studio / IntelliJ IDEA
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*.ipr
+*.iws
+/out/
+.navigation/
+
+# Log files
+*.log
+
+# Keystores and signing files
+# NOTE: It is best practice to keep signing files and credentials out of version control
+*.jks
+*.keystore
+*.p12
+*.pepk
+*.pk8
+*.pem
+private.pepk
+
+# Local configuration files (contains local paths, SDK paths, keystore passwords)
 local.properties
+gradle.properties.user
+secrets.properties
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

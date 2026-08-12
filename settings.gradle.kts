@@ -21,6 +21,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Covary"
+rootProject.name = "SeNutri"
 include(":app")
  
